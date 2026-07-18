@@ -1075,25 +1075,6 @@ section {
   transform: scale(1.025);
 }
 
-.portfolio-feature > span {
-  position: absolute;
-  z-index: 4;
-  right: 14px;
-  bottom: 14px;
-  max-width: calc(100% - 28px);
-  overflow: hidden;
-  padding: 8px 10px;
-  border: 1px solid rgba(241, 244, 242, 0.18);
-  color: var(--text);
-  background: rgba(8, 11, 13, 0.88);
-  backdrop-filter: blur(10px);
-  font-family: "Consolas", "SFMono-Regular", monospace;
-  font-size: 11px;
-  line-height: 1.35;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 .gallery-track {
   display: grid;
   grid-auto-columns: minmax(280px, 31vw);

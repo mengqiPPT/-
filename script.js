@@ -26,7 +26,6 @@ const portfolioFeature = document.querySelector(".portfolio-feature");
 const portfolioLoader = document.querySelector(".portfolio-loader");
 const portfolioFeatureImage = portfolioFeature?.querySelector(".portfolio-feature-image.is-current");
 const portfolioFeatureNextImage = portfolioFeature?.querySelector(".portfolio-feature-image.is-next");
-const portfolioFeatureLabel = document.querySelector("[data-feature-label]");
 const portfolioCurrentIndex = document.querySelector("[data-current-index]");
 const portfolioCurrentTitle = document.querySelector("[data-current-title]");
 const aiToolOptions = document.querySelectorAll(".ai-tool-option");
@@ -150,7 +149,6 @@ const updatePortfolioPreview = (item) => {
       portfolioFeatureImage.src = image;
       portfolioFeatureImage.alt = title;
       portfolioFeature.dataset.image = image;
-      if (portfolioFeatureLabel) portfolioFeatureLabel.textContent = `${index} / ${title}`;
       if (portfolioCurrentIndex) portfolioCurrentIndex.textContent = index;
       if (portfolioCurrentTitle) portfolioCurrentTitle.textContent = title;
       portfolioFeature.classList.remove("is-changing");
