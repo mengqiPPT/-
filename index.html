@@ -13,7 +13,28 @@
     <script src="assets/vendor/ScrollTrigger.min.js" defer></script>
     <script src="script.js" defer></script>
   </head>
-  <body>
+  <body class="site-loading">
+    <div class="site-intro" data-site-intro role="status" aria-live="polite" aria-label="网站加载中">
+      <div class="site-intro-header" aria-hidden="true">
+        <span>HS / PORTFOLIO</span>
+        <span data-site-intro-status>INITIALIZING</span>
+      </div>
+      <div class="site-intro-identity" aria-hidden="true">
+        <span class="site-intro-mark">HS</span>
+        <div>
+          <strong>黄思涵</strong>
+          <span>PPT DESIGN / AI / SYSTEMS</span>
+        </div>
+      </div>
+      <div class="site-intro-footer" aria-hidden="true">
+        <div class="site-intro-track"><span class="site-intro-line"></span></div>
+        <div class="site-intro-meta">
+          <span>LOADING PORTFOLIO</span>
+          <b data-site-intro-progress>000%</b>
+        </div>
+      </div>
+    </div>
+    <noscript><style>.site-intro{display:none}.site-loading{overflow:auto}</style></noscript>
     <div class="scroll-progress" aria-hidden="true"><span></span></div>
     <div class="portfolio-loader" aria-hidden="true">
       <div class="portfolio-loader-content">

@@ -1,4 +1,8 @@
 const body = document.body;
+const siteIntro = document.querySelector("[data-site-intro]");
+const siteIntroProgress = document.querySelector("[data-site-intro-progress]");
+const siteIntroStatus = document.querySelector("[data-site-intro-status]");
+const siteIntroLine = document.querySelector(".site-intro-line");
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelectorAll(".site-nav a");
 const revealItems = document.querySelectorAll("[data-reveal]");
@@ -41,6 +45,40 @@ let activeContactValue = "";
 let portfolioPreviewTimer;
 let portfolioPreviewToken = 0;
 let portfolioLoaderTimer;
+
+const introStartedAt = performance.now();
+let introProgressFrame;
+
+const updateSiteIntroProgress = (now) => {
+  if (!siteIntroProgress || siteIntro?.classList.contains("is-complete")) return;
+  const progress = Math.min(99, Math.floor(((now - introStartedAt) / 1250) * 100));
+  siteIntroProgress.textContent = `${String(progress).padStart(3, "0")}%`;
+  siteIntroLine.style.width = `${progress}%`;
+  introProgressFrame = window.requestAnimationFrame(updateSiteIntroProgress);
+};
+
+const completeSiteIntro = () => {
+  if (!siteIntro) return;
+  const delay = Math.max(0, 1250 - (performance.now() - introStartedAt));
+  window.setTimeout(() => {
+    window.cancelAnimationFrame(introProgressFrame);
+    siteIntroProgress.textContent = "100%";
+    siteIntroLine.style.width = "100%";
+    siteIntroStatus.textContent = "READY";
+    siteIntro.classList.add("is-complete");
+    body.classList.remove("site-loading");
+    window.setTimeout(() => siteIntro.remove(), 700);
+  }, delay);
+};
+
+if (siteIntro) {
+  introProgressFrame = window.requestAnimationFrame(updateSiteIntroProgress);
+  if (document.readyState === "complete") {
+    completeSiteIntro();
+  } else {
+    window.addEventListener("load", completeSiteIntro, { once: true });
+  }
+}
 
 navToggle?.addEventListener("click", () => {
   const isOpen = body.classList.toggle("nav-open");
@@ -390,7 +428,7 @@ const initTasteMotion = () => {
     });
   }
 
-  gsap.utils.toArray(".project-image img, .portfolio-feature-image.is-current").forEach((image) => {
+  gsap.utils.toArray(".project-image img").forEach((image) => {
     gsap.fromTo(
       image,
       { scale: 0.86, opacity: 0.55 },
