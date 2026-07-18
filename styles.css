@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Geist";
+  src: url("assets/fonts/geist-latin.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+}
+
 :root {
   --bg: #080b0d;
   --panel: #0f151b;
