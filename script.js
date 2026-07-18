@@ -46,12 +46,13 @@ let portfolioPreviewTimer;
 let portfolioPreviewToken = 0;
 let portfolioLoaderTimer;
 
+const siteIntroDuration = 1450;
 const introStartedAt = performance.now();
 let introProgressFrame;
 
 const updateSiteIntroProgress = (now) => {
   if (!siteIntroProgress || siteIntro?.classList.contains("is-complete")) return;
-  const progress = Math.min(99, Math.floor(((now - introStartedAt) / 1250) * 100));
+  const progress = Math.min(99, Math.floor(((now - introStartedAt) / siteIntroDuration) * 100));
   siteIntroProgress.textContent = `${String(progress).padStart(3, "0")}%`;
   siteIntroLine.style.width = `${progress}%`;
   introProgressFrame = window.requestAnimationFrame(updateSiteIntroProgress);
@@ -59,15 +60,15 @@ const updateSiteIntroProgress = (now) => {
 
 const completeSiteIntro = () => {
   if (!siteIntro) return;
-  const delay = Math.max(0, 1250 - (performance.now() - introStartedAt));
+  const delay = Math.max(0, siteIntroDuration - (performance.now() - introStartedAt));
   window.setTimeout(() => {
     window.cancelAnimationFrame(introProgressFrame);
     siteIntroProgress.textContent = "100%";
     siteIntroLine.style.width = "100%";
-    siteIntroStatus.textContent = "READY";
+    siteIntroStatus.textContent = "准备完成";
     siteIntro.classList.add("is-complete");
     body.classList.remove("site-loading");
-    window.setTimeout(() => siteIntro.remove(), 700);
+    window.setTimeout(() => siteIntro.remove(), 760);
   }, delay);
 };
 
@@ -223,7 +224,7 @@ const updateAiTool = (option) => {
 
   const index = option.dataset.toolIndex || "01";
   const name = option.dataset.toolName || "AI 工具";
-  const mark = option.dataset.toolMark || "AI";
+  const toolId = option.dataset.toolId || "chatgpt";
   const description = option.dataset.toolDescription || "用于日常创作与信息整理。";
   const link = option.dataset.toolLink || "#";
 
@@ -231,7 +232,7 @@ const updateAiTool = (option) => {
   window.clearTimeout(aiToolTimer);
   aiToolTimer = window.setTimeout(() => {
     aiToolFocusIndex.textContent = index;
-    aiToolFocusMark.textContent = mark;
+    aiToolFocusMark.dataset.toolId = toolId;
     aiToolFocusTitle.textContent = name;
     aiToolFocusDescription.textContent = description;
     aiToolFocusLink.href = link;
