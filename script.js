@@ -1,8 +1,4 @@
 const body = document.body;
-const siteIntro = document.querySelector("[data-site-intro]");
-const siteIntroProgress = document.querySelector("[data-site-intro-progress]");
-const siteIntroStatus = document.querySelector("[data-site-intro-status]");
-const siteIntroLine = document.querySelector(".site-intro-line");
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelectorAll(".site-nav a");
 const revealItems = document.querySelectorAll("[data-reveal]");
@@ -45,41 +41,6 @@ let activeContactValue = "";
 let portfolioPreviewTimer;
 let portfolioPreviewToken = 0;
 let portfolioLoaderTimer;
-
-const siteIntroDuration = 1450;
-const introStartedAt = performance.now();
-let introProgressFrame;
-
-const updateSiteIntroProgress = (now) => {
-  if (!siteIntroProgress || siteIntro?.classList.contains("is-complete")) return;
-  const progress = Math.min(99, Math.floor(((now - introStartedAt) / siteIntroDuration) * 100));
-  siteIntroProgress.textContent = `${String(progress).padStart(3, "0")}%`;
-  siteIntroLine.style.width = `${progress}%`;
-  introProgressFrame = window.requestAnimationFrame(updateSiteIntroProgress);
-};
-
-const completeSiteIntro = () => {
-  if (!siteIntro) return;
-  const delay = Math.max(0, siteIntroDuration - (performance.now() - introStartedAt));
-  window.setTimeout(() => {
-    window.cancelAnimationFrame(introProgressFrame);
-    siteIntroProgress.textContent = "100%";
-    siteIntroLine.style.width = "100%";
-    siteIntroStatus.textContent = "准备完成";
-    siteIntro.classList.add("is-complete");
-    body.classList.remove("site-loading");
-    window.setTimeout(() => siteIntro.remove(), 760);
-  }, delay);
-};
-
-if (siteIntro) {
-  introProgressFrame = window.requestAnimationFrame(updateSiteIntroProgress);
-  if (document.readyState === "complete") {
-    completeSiteIntro();
-  } else {
-    window.addEventListener("load", completeSiteIntro, { once: true });
-  }
-}
 
 navToggle?.addEventListener("click", () => {
   const isOpen = body.classList.toggle("nav-open");
