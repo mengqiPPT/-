@@ -35,6 +35,7 @@ const aiToolFocusMark = document.querySelector("[data-tool-mark]");
 const aiToolFocusTitle = document.querySelector("[data-tool-title]");
 const aiToolFocusDescription = document.querySelector("[data-tool-description]");
 const aiToolFocusLink = document.querySelector("[data-tool-link]");
+const aiFilmVideos = document.querySelectorAll(".ai-film video");
 
 let toastTimer;
 let activeContactValue = "";
@@ -51,6 +52,14 @@ navLinks.forEach((link) => {
   link.addEventListener("click", () => {
     body.classList.remove("nav-open");
     navToggle?.setAttribute("aria-expanded", "false");
+  });
+});
+
+aiFilmVideos.forEach((video) => {
+  video.addEventListener("play", () => {
+    aiFilmVideos.forEach((otherVideo) => {
+      if (otherVideo !== video) otherVideo.pause();
+    });
   });
 });
 
@@ -358,7 +367,7 @@ const initTasteMotion = () => {
     { opacity: 1, y: 0, scale: 1, duration: 1.15, ease: "power3.out", delay: 0.22 }
   );
 
-  gsap.utils.toArray(".about-method-item, .project-card, .honor-table tbody tr, .tool-card, .tool-resource-panel, .contact-card").forEach((item, index) => {
+  gsap.utils.toArray(".about-method-item, .project-card, .honor-table tbody tr, .tool-card, .tool-resource-panel, .ai-film, .contact-card").forEach((item, index) => {
     gsap.fromTo(
       item,
       { opacity: 0, y: 46 },
