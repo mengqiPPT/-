@@ -3018,7 +3018,16 @@ section {
   line-height: 1;
 }
 
+.gallery-section {
+  padding-bottom: clamp(48px, 4.8vw, 72px);
+}
+
+.work-section {
+  padding-top: clamp(48px, 4.8vw, 72px);
+}
+
 .ai-work-section {
+  padding-block: clamp(48px, 4.8vw, 72px);
   border-top: 1px solid var(--line);
 }
 
