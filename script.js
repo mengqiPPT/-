@@ -367,7 +367,7 @@ const initTasteMotion = () => {
     { opacity: 1, y: 0, scale: 1, duration: 1.15, ease: "power3.out", delay: 0.22 }
   );
 
-  gsap.utils.toArray(".about-method-item, .project-card, .honor-table tbody tr, .tool-card, .tool-resource-panel, .ai-film, .contact-card").forEach((item, index) => {
+  gsap.utils.toArray(".about-method-item, .honor-table tbody tr, .tool-card, .tool-resource-panel, .contact-card").forEach((item, index) => {
     gsap.fromTo(
       item,
       { opacity: 0, y: 46 },
@@ -398,24 +398,6 @@ const initTasteMotion = () => {
       }
     });
   }
-
-  gsap.utils.toArray(".project-image img").forEach((image) => {
-    gsap.fromTo(
-      image,
-      { scale: 0.86, opacity: 0.55 },
-      {
-        scale: 1,
-        opacity: 1,
-        ease: "none",
-        scrollTrigger: {
-          trigger: image,
-          start: "top 92%",
-          end: "bottom 24%",
-          scrub: 0.8
-        }
-      }
-    );
-  });
 
   ScrollTrigger.refresh();
 };

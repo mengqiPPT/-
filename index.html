@@ -41,9 +41,9 @@
           <nav class="site-nav" aria-label="主导航">
             <a href="#about">关于</a>
             <a href="#work">作品</a>
+            <a href="#ai-work">AI 作品</a>
             <a href="#honors">荣誉</a>
             <a href="#toolkit">工具</a>
-            <a href="#ai-work">AI 作品</a>
             <a href="#contact">联系</a>
           </nav>
         </div>
@@ -272,75 +272,76 @@
           </div>
         </section>
 
+        <section id="ai-work" class="ai-work-section" aria-labelledby="ai-work-title">
+          <div class="ai-work-heading" data-reveal>
+            <p class="section-kicker">AI 作品集</p>
+            <h2 id="ai-work-title">完整影片。</h2>
+          </div>
+
+          <div class="ai-film-list">
+            <article class="ai-film ai-film-landscape">
+              <div class="ai-film-head">
+                <span>01 / AI 短剧</span>
+                <h3>拾光放映机</h3>
+                <span>02:44</span>
+              </div>
+              <video controls preload="metadata" playsinline poster="assets/ai-works/film-03.jpg" aria-label="播放《拾光放映机》完整影片">
+                <source src="assets/ai-works/kuaishou-03.mp4" type="video/mp4" />
+                当前浏览器不支持视频播放。
+              </video>
+            </article>
+            <div class="ai-film-portraits">
+              <article class="ai-film ai-film-portrait">
+                <div class="ai-film-head">
+                  <span>02 / AI 短剧</span>
+                  <h3>短剧作品 01</h3>
+                  <span>00:37</span>
+                </div>
+                <video controls preload="metadata" playsinline poster="assets/ai-works/film-01.jpg" aria-label="播放 AI 短剧作品 01 完整影片">
+                  <source src="assets/ai-works/kuaishou-01.mp4" type="video/mp4" />
+                  当前浏览器不支持视频播放。
+                </video>
+              </article>
+              <article class="ai-film ai-film-portrait">
+                <div class="ai-film-head">
+                  <span>03 / AI 短剧</span>
+                  <h3>短剧作品 02</h3>
+                  <span>00:31</span>
+                </div>
+                <video controls preload="metadata" playsinline poster="assets/ai-works/film-02.jpg" aria-label="播放 AI 短剧作品 02 完整影片">
+                  <source src="assets/ai-works/kuaishou-02.mp4" type="video/mp4" />
+                  当前浏览器不支持视频播放。
+                </video>
+              </article>
+            </div>
+          </div>
+        </section>
+
         <section class="work-section" aria-labelledby="work-title">
           <div class="section-heading wide" data-reveal>
             <p class="section-kicker">开源项目</p>
-            <h2 id="work-title">把做过的工具，交给更多人继续使用。</h2>
+            <h2 id="work-title">把做过的工具开源。</h2>
           </div>
 
-          <div class="project-stage">
-            <article class="project-card" data-reveal>
-              <span class="project-number">01</span>
-              <div class="project-copy">
-                <span class="project-type">Electron / 内容工作流</span>
-                <h3>帖子日程台</h3>
-                <p>
-                  把 Markdown 帖子按日期与课程整理，记录发布进度，并将标题或正文一键填入当前输入框。
-                </p>
-                <div class="project-tags" aria-label="项目技术">
-                  <span>Electron</span><span>JavaScript</span><span>Windows</span>
-                </div>
-                <a class="line-button" href="https://github.com/mengqiPPT/post-schedule-desk" target="_blank" rel="noreferrer" data-text="查看 GitHub">
-                  <span class="actual-text">&nbsp;查看 GitHub&nbsp;</span>
-                  <span aria-hidden="true" class="hover-text">&nbsp;查看 GitHub&nbsp;</span>
-                </a>
-              </div>
-              <a class="project-image" href="https://github.com/mengqiPPT/post-schedule-desk" target="_blank" rel="noreferrer" aria-label="在 GitHub 查看帖子日程台">
-                <img src="assets/projects/post-schedule-desk.png" alt="帖子日程台的 Markdown 导入界面" />
-              </a>
-            </article>
-
-            <article class="project-card" data-reveal>
-              <span class="project-number">02</span>
-              <div class="project-copy">
-                <span class="project-type">Electron / 本地 AI 工作台</span>
-                <h3>小黄的工作站</h3>
-                <p>
-                  连接任务、创作发布、Obsidian 知识库、无限画布与私人 AI 的本地创作者工作台。
-                </p>
-                <div class="project-tags" aria-label="项目技术">
-                  <span>React</span><span>TypeScript</span><span>Electron</span>
-                </div>
-                <a class="line-button" href="https://github.com/mengqiPPT/creator-workstation" target="_blank" rel="noreferrer" data-text="查看 GitHub">
-                  <span class="actual-text">&nbsp;查看 GitHub&nbsp;</span>
-                  <span aria-hidden="true" class="hover-text">&nbsp;查看 GitHub&nbsp;</span>
-                </a>
-              </div>
-              <a class="project-image" href="https://github.com/mengqiPPT/creator-workstation" target="_blank" rel="noreferrer" aria-label="在 GitHub 查看小黄的工作站">
-                <img src="assets/projects/creator-workstation.png" alt="小黄的工作站任务与创作首页" />
-              </a>
-            </article>
-
-            <article class="project-card" data-reveal>
-              <span class="project-number">03</span>
-              <div class="project-copy">
-                <span class="project-type">FastAPI / Vue 3</span>
-                <h3>抖音视频收藏夹</h3>
-                <p>
-                  自动解析视频信息，完成 AI 摘要、智能分类和全文检索，把零散收藏转成可查找的个人资料库。
-                </p>
-                <div class="project-tags" aria-label="项目技术">
-                  <span>FastAPI</span><span>Vue 3</span><span>SQLite</span>
-                </div>
-                <a class="line-button" href="https://github.com/mengqiPPT/douyin-collector" target="_blank" rel="noreferrer" data-text="查看 GitHub">
-                  <span class="actual-text">&nbsp;查看 GitHub&nbsp;</span>
-                  <span aria-hidden="true" class="hover-text">&nbsp;查看 GitHub&nbsp;</span>
-                </a>
-              </div>
-              <a class="project-image" href="https://github.com/mengqiPPT/douyin-collector" target="_blank" rel="noreferrer" aria-label="在 GitHub 查看抖音视频收藏夹">
-                <img src="assets/projects/douyin-collector.png" alt="抖音视频收藏夹的数据概览界面" />
-              </a>
-            </article>
+          <div class="open-source-list">
+            <a class="open-source-item" href="https://github.com/mengqiPPT/post-schedule-desk" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 查看帖子日程台">
+              <span class="open-source-number">01</span>
+              <span class="open-source-main"><strong>帖子日程台</strong><small>整理 Markdown 帖子、排期与发布进度。</small></span>
+              <span class="open-source-stack">Electron · JavaScript</span>
+              <span class="open-source-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="open-source-item" href="https://github.com/mengqiPPT/creator-workstation" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 查看小黄的工作站">
+              <span class="open-source-number">02</span>
+              <span class="open-source-main"><strong>小黄的工作站</strong><small>任务、知识库与 AI 创作的本地工作台。</small></span>
+              <span class="open-source-stack">React · TypeScript · Electron</span>
+              <span class="open-source-arrow" aria-hidden="true">↗</span>
+            </a>
+            <a class="open-source-item" href="https://github.com/mengqiPPT/douyin-collector" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 查看抖音视频收藏夹">
+              <span class="open-source-number">03</span>
+              <span class="open-source-main"><strong>抖音视频收藏夹</strong><small>AI 摘要、分类与全文检索的个人资料库。</small></span>
+              <span class="open-source-stack">FastAPI · Vue 3 · SQLite</span>
+              <span class="open-source-arrow" aria-hidden="true">↗</span>
+            </a>
           </div>
         </section>
 
@@ -509,60 +510,6 @@
                 </ul>
               </div>
             </div>
-          </div>
-        </section>
-
-        <section id="ai-work" class="ai-work-section" aria-labelledby="ai-work-title">
-          <div class="ai-work-heading" data-reveal>
-            <p class="section-kicker">AI 作品集</p>
-            <h2 id="ai-work-title">短剧、角色与镜头实验。</h2>
-            <p>
-              从角色一致性、对白表演到场景调度，把生成式影像真正推进到可以观看的叙事片段。
-            </p>
-          </div>
-
-          <div class="ai-film-grid">
-            <article class="ai-film ai-film-featured" data-reveal>
-              <div class="ai-film-media">
-                <video controls preload="metadata" playsinline poster="assets/ai-works/campus-brief-01.png">
-                  <source src="assets/ai-works/campus-brief-01.mp4" type="video/mp4" />
-                  当前浏览器不支持视频播放。
-                </video>
-              </div>
-              <div class="ai-film-copy">
-                <span>AI 短剧 / 校园职场</span>
-                <h3>甲方来敲门</h3>
-                <p>用一个临时 PPT 委托切入，测试双角色对白、校园场景连续性和喜剧节奏。</p>
-              </div>
-            </article>
-
-            <article class="ai-film" data-reveal>
-              <div class="ai-film-media">
-                <video controls preload="metadata" playsinline poster="assets/ai-works/campus-brief-02.png">
-                  <source src="assets/ai-works/campus-brief-02.mp4" type="video/mp4" />
-                  当前浏览器不支持视频播放。
-                </video>
-              </div>
-              <div class="ai-film-copy">
-                <span>角色表演 / 情绪爆发</span>
-                <h3>需求失控现场</h3>
-                <p>强化台词情绪和面部表演，验证同一角色在连续镜头中的状态变化。</p>
-              </div>
-            </article>
-
-            <article class="ai-film" data-reveal>
-              <div class="ai-film-media">
-                <video controls preload="metadata" playsinline poster="assets/ai-works/campus-brief-03.png">
-                  <source src="assets/ai-works/campus-brief-03.mp4" type="video/mp4" />
-                  当前浏览器不支持视频播放。
-                </video>
-              </div>
-              <div class="ai-film-copy">
-                <span>角色独白 / 收束镜头</span>
-                <h3>创作者的结尾</h3>
-                <p>以直视镜头的独白完成情绪收束，测试口型、语气和最后一句的停顿。</p>
-              </div>
-            </article>
           </div>
         </section>
 

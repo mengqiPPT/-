@@ -2948,262 +2948,216 @@ section {
   }
 }
 
-/* Open-source work: editorial rows instead of generic dashboard cards. */
+/* Project index follows the same horizontal rules as the honors table. */
 .work-section .section-heading h2 {
   max-width: 1120px;
+  white-space: normal;
 }
 
-.project-stage {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
+.open-source-list {
   margin-top: 52px;
   border-bottom: 1px solid var(--line);
 }
 
-.project-card {
-  position: relative;
+.open-source-item {
   display: grid;
-  grid-template-columns: 64px minmax(280px, 0.8fr) minmax(420px, 1.2fr);
-  gap: clamp(24px, 4vw, 72px);
+  grid-template-columns: 56px minmax(0, 1fr) minmax(210px, 0.48fr) 32px;
+  gap: clamp(18px, 2.4vw, 44px);
   align-items: center;
-  min-width: 0;
-  padding: clamp(30px, 4vw, 62px) 0;
-  overflow: visible;
-  border: 0;
+  min-height: 142px;
+  padding: 27px 22px 27px 4px;
   border-top: 1px solid var(--line);
-  border-radius: 0;
-  background: transparent;
-  box-shadow: none;
-  transform: none;
+  transition: background-color 180ms ease, border-color 180ms ease;
 }
 
-.project-card:hover {
-  border-color: rgba(215, 255, 95, 0.44);
-  box-shadow: none;
-  transform: none;
+.open-source-item:hover,
+.open-source-item:focus-visible {
+  border-color: rgba(215, 255, 95, 0.65);
+  background: rgba(215, 255, 95, 0.045);
 }
 
-.project-card::before {
-  display: none;
-}
-
-.project-number {
-  align-self: start;
-  padding-top: 7px;
-  color: var(--accent);
+.open-source-number,
+.open-source-stack {
   font-family: "Consolas", "SFMono-Regular", monospace;
   font-size: 12px;
-  font-weight: 700;
 }
 
-.project-copy {
-  display: flex;
-  min-height: 0;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0;
-  border: 0;
-}
-
-.project-copy h3 {
-  margin: 16px 0 16px;
-  font-size: clamp(30px, 3.4vw, 54px);
-  line-height: 1.08;
-}
-
-.project-copy p {
-  max-width: 48ch;
-  font-size: 15px;
-  line-height: 1.82;
-}
-
-.project-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 0;
-  margin-top: 22px;
-  color: rgba(241, 244, 242, 0.5);
-  font-family: "Consolas", "SFMono-Regular", monospace;
-  font-size: 11px;
-}
-
-.project-tags span + span::before {
-  content: "/";
-  margin: 0 12px;
+.open-source-number {
+  align-self: start;
+  padding-top: 8px;
   color: var(--accent);
 }
 
-.project-copy .line-button {
-  margin-top: 28px;
+.open-source-main {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.project-image {
-  display: block;
-  overflow: hidden;
-  padding: 0;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: #0b1014;
+.open-source-main strong {
+  font-size: clamp(25px, 2.8vw, 43px);
+  line-height: 1.15;
 }
 
-.project-image img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border: 0;
-  border-radius: 0;
-  object-fit: cover;
-  filter: saturate(0.9) contrast(1.04);
-  transition: filter 260ms ease, transform 500ms ease;
+.open-source-main small {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
 }
 
-.project-card:hover .project-image img {
-  filter: saturate(1) contrast(1.08);
-  transform: scale(1.018);
+.open-source-stack {
+  color: var(--muted);
+  line-height: 1.6;
 }
 
-/* AI film reel. */
+.open-source-arrow {
+  justify-self: end;
+  color: var(--accent);
+  font-size: 24px;
+  line-height: 1;
+}
+
 .ai-work-section {
   border-top: 1px solid var(--line);
 }
 
-.ai-work-heading {
-  max-width: 1160px;
-}
-
 .ai-work-heading h2 {
-  max-width: 1000px;
   margin: 16px 0 0;
-  font-size: clamp(44px, 7.4vw, 112px);
-  line-height: 0.94;
+  font-size: clamp(48px, 7vw, 108px);
+  line-height: 1;
 }
 
-.ai-work-heading > p:last-child {
-  max-width: 680px;
-  margin: 28px 0 0;
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 1.85;
-}
-
-.ai-film-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  margin-top: 56px;
+.ai-film-list {
+  max-width: 1280px;
+  margin-top: 54px;
 }
 
 .ai-film {
   min-width: 0;
-  padding-top: 16px;
   border-top: 1px solid var(--line);
 }
 
-.ai-film-featured {
-  grid-column: 1 / -1;
+.ai-film-head {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(260px, 0.55fr);
-  gap: clamp(28px, 5vw, 88px);
-  align-items: end;
-  padding-bottom: 48px;
+  grid-template-columns: 130px minmax(0, 1fr) 72px;
+  gap: 18px;
+  align-items: baseline;
+  padding: 20px 0 24px;
 }
 
-.ai-film-media {
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: #050708;
+.ai-film-head > span {
+  color: var(--accent);
+  font-family: "Consolas", "SFMono-Regular", monospace;
+  font-size: 12px;
 }
 
-.ai-film-media video {
+.ai-film-head > span:last-child {
+  justify-self: end;
+  color: var(--muted);
+}
+
+.ai-film-head h3 {
+  margin: 0;
+  font-size: clamp(25px, 2.8vw, 42px);
+  line-height: 1.15;
+}
+
+.ai-film video {
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: 4px;
   background: #050708;
+  object-fit: contain;
 }
 
-.ai-film-copy {
-  padding: 24px 2px 8px;
+.ai-film-portraits {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 3.2vw, 52px);
+  max-width: 980px;
+  margin-top: 56px;
 }
 
-.ai-film-copy > span {
-  color: var(--accent);
-  font-family: "Consolas", "SFMono-Regular", monospace;
-  font-size: 11px;
+.ai-film-portrait .ai-film-head {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 9px 12px;
 }
 
-.ai-film-copy h3 {
-  margin: 15px 0 14px;
-  font-size: clamp(26px, 3vw, 48px);
-  line-height: 1.08;
+.ai-film-portrait .ai-film-head h3 {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  font-size: clamp(24px, 2.3vw, 34px);
 }
 
-.ai-film-copy p {
-  max-width: 42ch;
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.8;
+.ai-film-portrait .ai-film-head > span:last-child {
+  grid-column: 2;
+  grid-row: 1;
 }
 
-@media (max-width: 1100px) {
-  .project-card {
-    grid-template-columns: 44px minmax(240px, 0.78fr) minmax(340px, 1.22fr);
-    gap: 28px;
-  }
+.ai-film-portrait video {
+  aspect-ratio: 9 / 16;
 }
 
 @media (max-width: 920px) {
-  .project-card {
-    grid-template-columns: 42px minmax(0, 1fr);
+  .open-source-item {
+    grid-template-columns: 40px minmax(0, 1fr) 24px;
+    min-height: 126px;
+    gap: 12px 18px;
   }
 
-  .project-image {
-    grid-column: 1 / -1;
+  .open-source-stack {
+    grid-column: 2;
   }
 
-  .ai-film-featured {
-    grid-template-columns: 1fr;
-    gap: 0;
+  .open-source-arrow {
+    grid-column: 3;
+    grid-row: 1 / span 2;
   }
 }
 
 @media (max-width: 680px) {
-  .project-stage {
-    margin-top: 38px;
+  .open-source-list {
+    margin-top: 36px;
   }
 
-  .project-card {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    padding: 34px 0;
+  .open-source-item {
+    padding: 24px 4px;
   }
 
-  .project-number {
-    padding-top: 0;
-  }
-
-  .project-copy h3 {
-    font-size: 34px;
-  }
-
-  .project-image {
-    grid-column: auto;
+  .open-source-main strong {
+    font-size: 25px;
   }
 
   .ai-work-heading h2 {
-    font-size: 48px;
+    font-size: 54px;
   }
 
-  .ai-film-grid {
+  .ai-film-list {
+    margin-top: 36px;
+  }
+
+  .ai-film-head {
+    grid-template-columns: 1fr auto;
+    gap: 8px 12px;
+    padding: 18px 0;
+  }
+
+  .ai-film-head h3 {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .ai-film-head > span:last-child {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .ai-film-portraits {
     grid-template-columns: 1fr;
+    gap: 38px;
     margin-top: 40px;
-  }
-
-  .ai-film-featured {
-    grid-column: auto;
-    padding-bottom: 18px;
   }
 }
