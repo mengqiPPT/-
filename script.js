@@ -35,7 +35,12 @@ const aiToolFocusMark = document.querySelector("[data-tool-mark]");
 const aiToolFocusTitle = document.querySelector("[data-tool-title]");
 const aiToolFocusDescription = document.querySelector("[data-tool-description]");
 const aiToolFocusLink = document.querySelector("[data-tool-link]");
-const aiFilmVideos = document.querySelectorAll(".ai-film video");
+const filmEntries = document.querySelectorAll(".film-entry");
+const filmDialog = document.querySelector(".film-dialog");
+const filmDialogVideo = filmDialog?.querySelector("video");
+const filmDialogTitle = document.querySelector("#film-dialog-title");
+const filmDialogIndex = document.querySelector(".film-dialog-index");
+const filmDialogClose = document.querySelector(".film-dialog-close");
 
 let toastTimer;
 let activeContactValue = "";
@@ -55,12 +60,30 @@ navLinks.forEach((link) => {
   });
 });
 
-aiFilmVideos.forEach((video) => {
-  video.addEventListener("play", () => {
-    aiFilmVideos.forEach((otherVideo) => {
-      if (otherVideo !== video) otherVideo.pause();
-    });
+filmEntries.forEach((entry) => {
+  entry.addEventListener("click", () => {
+    if (!filmDialog || !filmDialogVideo || !filmDialogTitle || !filmDialogIndex) return;
+
+    filmDialogTitle.textContent = entry.dataset.filmTitle || "AI 作品";
+    filmDialogIndex.textContent = `${entry.dataset.filmIndex || "01"} / AI 短剧`;
+    filmDialog.classList.toggle("is-portrait", entry.dataset.filmOrientation === "portrait");
+    filmDialogVideo.poster = entry.dataset.filmPoster || "";
+    filmDialogVideo.src = entry.dataset.filmSrc || "";
+    filmDialog.showModal();
+    body.style.overflow = "hidden";
+    filmDialogVideo.play().catch(() => {});
   });
+});
+
+filmDialogClose?.addEventListener("click", () => filmDialog.close());
+filmDialog?.addEventListener("click", (event) => {
+  if (event.target === filmDialog) filmDialog.close();
+});
+filmDialog?.addEventListener("close", () => {
+  filmDialogVideo.pause();
+  filmDialogVideo.removeAttribute("src");
+  filmDialogVideo.load();
+  body.style.overflow = "";
 });
 
 const revealObserver = new IntersectionObserver(
@@ -294,6 +317,7 @@ galleryModal?.addEventListener("click", (event) => {
 
 window.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
+    if (filmDialog?.open) filmDialog.close();
     closeLightbox();
     closeGalleryModal();
     closeContactPopover();

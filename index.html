@@ -275,45 +275,25 @@
         <section id="ai-work" class="ai-work-section" aria-labelledby="ai-work-title">
           <div class="ai-work-heading" data-reveal>
             <p class="section-kicker">AI 作品集</p>
-            <h2 id="ai-work-title">完整影片。</h2>
+            <h2 id="ai-work-title">让想象开拍。</h2>
           </div>
 
-          <div class="ai-film-list">
-            <article class="ai-film ai-film-landscape">
-              <div class="ai-film-head">
-                <span>01 / AI 短剧</span>
-                <h3>拾光放映机</h3>
-                <span>02:44</span>
-              </div>
-              <video controls preload="metadata" playsinline poster="assets/ai-works/film-03.jpg" aria-label="播放《拾光放映机》完整影片">
-                <source src="assets/ai-works/kuaishou-03.mp4" type="video/mp4" />
-                当前浏览器不支持视频播放。
-              </video>
-            </article>
-            <div class="ai-film-portraits">
-              <article class="ai-film ai-film-portrait">
-                <div class="ai-film-head">
-                  <span>02 / AI 短剧</span>
-                  <h3>短剧作品 01</h3>
-                  <span>00:37</span>
-                </div>
-                <video controls preload="metadata" playsinline poster="assets/ai-works/film-01.jpg" aria-label="播放 AI 短剧作品 01 完整影片">
-                  <source src="assets/ai-works/kuaishou-01.mp4" type="video/mp4" />
-                  当前浏览器不支持视频播放。
-                </video>
-              </article>
-              <article class="ai-film ai-film-portrait">
-                <div class="ai-film-head">
-                  <span>03 / AI 短剧</span>
-                  <h3>短剧作品 02</h3>
-                  <span>00:31</span>
-                </div>
-                <video controls preload="metadata" playsinline poster="assets/ai-works/film-02.jpg" aria-label="播放 AI 短剧作品 02 完整影片">
-                  <source src="assets/ai-works/kuaishou-02.mp4" type="video/mp4" />
-                  当前浏览器不支持视频播放。
-                </video>
-              </article>
-            </div>
+          <div class="film-index" aria-label="AI 短剧作品">
+            <button class="film-entry" type="button" data-film-src="assets/ai-works/kuaishou-03.mp4" data-film-poster="assets/ai-works/film-03.jpg" data-film-title="拾光放映机" data-film-index="01" data-film-orientation="landscape" aria-label="播放《拾光放映机》，2 分 44 秒">
+              <span class="film-entry-thumb"><img src="assets/ai-works/film-03.jpg" alt="" loading="lazy" /></span>
+              <span class="film-entry-copy"><small>01 / AI 短剧</small><strong>拾光放映机</strong><span>02:44</span></span>
+              <span class="film-entry-play" aria-hidden="true">▶</span>
+            </button>
+            <button class="film-entry" type="button" data-film-src="assets/ai-works/kuaishou-01.mp4" data-film-poster="assets/ai-works/film-01.jpg" data-film-title="短剧作品 01" data-film-index="02" data-film-orientation="portrait" aria-label="播放短剧作品 01，37 秒">
+              <span class="film-entry-thumb"><img src="assets/ai-works/film-01.jpg" alt="" loading="lazy" /></span>
+              <span class="film-entry-copy"><small>02 / AI 短剧</small><strong>短剧作品 01</strong><span>00:37</span></span>
+              <span class="film-entry-play" aria-hidden="true">▶</span>
+            </button>
+            <button class="film-entry" type="button" data-film-src="assets/ai-works/kuaishou-02.mp4" data-film-poster="assets/ai-works/film-02.jpg" data-film-title="短剧作品 02" data-film-index="03" data-film-orientation="portrait" aria-label="播放短剧作品 02，31 秒">
+              <span class="film-entry-thumb"><img src="assets/ai-works/film-02.jpg" alt="" loading="lazy" /></span>
+              <span class="film-entry-copy"><small>03 / AI 短剧</small><strong>短剧作品 02</strong><span>00:31</span></span>
+              <span class="film-entry-play" aria-hidden="true">▶</span>
+            </button>
           </div>
         </section>
 
@@ -583,6 +563,16 @@
         </section>
       </main>
     </div>
+
+    <dialog class="film-dialog" aria-labelledby="film-dialog-title">
+      <div class="film-dialog-panel">
+        <div class="film-dialog-head">
+          <div><span class="film-dialog-index"></span><h3 id="film-dialog-title"></h3></div>
+          <button class="film-dialog-close" type="button" aria-label="关闭视频"><span aria-hidden="true">×</span></button>
+        </div>
+        <video controls playsinline preload="none"></video>
+      </div>
+    </dialog>
 
     <div class="lightbox" aria-hidden="true" role="dialog" aria-label="作品预览">
       <button class="lightbox-close" type="button" aria-label="关闭预览">关闭</button>
